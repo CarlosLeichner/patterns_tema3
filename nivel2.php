@@ -42,14 +42,14 @@ class Turkey  {
         $turkey->fly();
 }
 
-class TurkeyAdapter extends Turkey{
+class TurkeyAdapter extends Duck{
     private $Turkey;
     function __construct(Turkey $Turkey)
     {
         $this->Turkey= $Turkey;
     }
-    public function quack(){
-            parent::gobble()."</br>";
+    public function google(){
+            parent::quack()."</br>";
     }
     public function fly(){
         for ($i=1; $i <=5 ; $i++) { 

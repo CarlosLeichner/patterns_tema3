@@ -12,15 +12,17 @@ Añade un método getCounter () que devuelva el número de veces que Tigger ha r
 
 namespace Singleton;
 class Tigger {
+    private $counter;
     public static $tigger;
     
     private function __construct() {
             echo "Building character..." . PHP_EOL."</br>";
     }
 
-    public static function roar() 
+    public function roar() 
     {
-        echo "Grrr!" . PHP_EOL."</br>";        
+        echo "Grrr!" . PHP_EOL."</br>";
+        $this->counter++;
     }
 
     public static function getInstance()
@@ -30,14 +32,10 @@ class Tigger {
         }
         return self::$tigger;
     }
-    public static function getCounter()
+    public function getCounter()
     {
-        $counter= 0;
-        for ($i=0; $i < $n=rand(0,10); $i++) { 
-            self::roar();
-            $counter++;
-        }
-        return $counter;
+        
+        return "Tigger ha rugido $this->counter veces";
     }
     protected function __clone() 
     { 
@@ -45,7 +43,10 @@ class Tigger {
     }
 }
 $tigger= Tigger::getInstance();
-echo Tigger::getCounter();
+$tigger->roar();
+$tigger->roar();
+$tigger->roar();
+echo $tigger->getCounter();
 
 
 ?>
