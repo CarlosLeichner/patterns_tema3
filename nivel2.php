@@ -15,11 +15,11 @@ Prueba tu clase con el siguiente código:*/
 class Duck {
 
     public function quack() {
-           echo "Quack \n";
+           echo "Quack \n"."</br>";
     }
 
     public function fly() {
-           echo "I'm flying \n";
+           echo "I'm flying \n"."</br>";
     }
 }
 class Turkey  {
@@ -43,17 +43,18 @@ class Turkey  {
 }
 
 class TurkeyAdapter extends Duck{
-    private $Turkey;
-    function __construct(Turkey $Turkey)
+    private $turkey;
+    function __construct(Turkey $turkey)
     {
-        $this->Turkey= $Turkey;
+        $this->turkey= $turkey;
     }
-    public function google(){
-            parent::quack()."</br>";
+    public function quack()
+    {
+         $this->turkey->gobble();
     }
     public function fly(){
         for ($i=1; $i <=5 ; $i++) { 
-            parent::fly();
+            $this->turkey->fly();
         }
     }
    
